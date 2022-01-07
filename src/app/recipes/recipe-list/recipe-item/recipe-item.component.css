@@ -1,0 +1,13 @@
+.list-group-item-heading {
+  color:black;
+}
+.list-group-item-text {
+  color:darkgray;
+}
+.active .list-group-item-heading {
+  color:white;
+}
+.active .list-group-item-text {
+  color:white;
+}
+
