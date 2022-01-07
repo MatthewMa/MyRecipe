@@ -12,6 +12,8 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { FormsModule } from '@angular/forms';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { DropdownDirective } from './shared/dropdown.directive';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
