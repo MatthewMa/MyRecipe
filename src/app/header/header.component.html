@@ -5,19 +5,19 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item" [ngClass]="{'active' : selectedFeature === 'recipe' }">
-        <a class="nav-link" href="#" (click)="select('recipe')">Recipes</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" href="#" routerLink="/recipes">Recipes</a>
       </li>
-      <li class="nav-item" [ngClass]="{'active' : selectedFeature === 'shoppinglist' }">
-        <a class="nav-link" href="#" (click)="select('shoppinglist')">Shopping List</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" href="#" routerLink="/shopping-list">Shopping List</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Manage
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Save Data</a>
-          <a class="dropdown-item" href="#">Fetch Data</a>
+          <a class="dropdown-item" style="cursor: pointer;">Save Data</a>
+          <a class="dropdown-item" style="cursor: pointer;">Fetch Data</a>
         </div>
       </li>
     </ul>

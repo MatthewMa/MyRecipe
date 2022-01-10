@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { RecipeService } from './../recipe.service';
 import { Recipe } from './../recipe.model';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
@@ -9,7 +10,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [];
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }
   ngOnInit(): void {
     this.recipes = this.recipeService.getRecipe();
   }

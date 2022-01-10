@@ -1,7 +1,10 @@
+import { RecipeService } from './../recipe.service';
+import { ActivatedRoute, Params } from '@angular/router';
 import { ShoppingListService } from './../../shopping-list/shopping-list.service';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Recipe } from '../recipe.model';
 import { NotificationService } from 'src/app/shared/notification-service.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -9,15 +12,20 @@ import { NotificationService } from 'src/app/shared/notification-service.service
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css']
 })
-export class RecipeDetailComponent implements OnInit, OnChanges {
+export class RecipeDetailComponent implements OnInit, OnDestroy {
   @Input() currentRecipe: Recipe | undefined;
-  constructor(private shoppingListService: ShoppingListService, private notifyService : NotificationService) { }
-  ngOnChanges(changes: SimpleChanges): void {
-
+  paramsSubscription: Subscription | undefined;
+  id: number | undefined;
+  constructor(private shoppingListService: ShoppingListService, private notifyService : NotificationService, private route: ActivatedRoute, private recipeService: RecipeService) { }
+  ngOnDestroy(): void {
+    this.paramsSubscription?.unsubscribe();
   }
 
   ngOnInit(): void {
-
+    this.paramsSubscription = this.route.params.subscribe( (params: Params) => {
+      this.id = +params['id'];
+      this.currentRecipe = this.recipeService.getRecipeById(this.id);
+    });
   }
 
   onIngredientAdded() {

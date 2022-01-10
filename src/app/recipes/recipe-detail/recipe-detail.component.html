@@ -15,10 +15,10 @@
         <div class="btn-group dropdown">
           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage <span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li><a href="#" class="dropdown-item" (click)="onIngredientAdded()">To Shopping List</a></li>
+            <li><a class="dropdown-item" (click)="onIngredientAdded()" style="cursor: pointer;">To Shopping List</a></li>
             <div class="dropdown-divider"></div>
-            <li><a href="#" class="dropdown-item">Edit Recipe</a></li>
-            <li><a href="#" class="dropdown-item">Delete Recipe</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" [routerLink]="['edit']">Edit Recipe</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;">Delete Recipe</a></li>
           </ul>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { ActiveSelectDirective } from './shared/activeSelect.directive';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +15,9 @@ import { FormsModule } from '@angular/forms';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +30,17 @@ import { ToastrModule } from 'ngx-toastr';
     ShoppingListComponent,
     ShoppingEditComponent,
     DropdownDirective,
-    ActiveSelectDirective
+    ActiveSelectDirective,
+    NotFoundComponent,
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
