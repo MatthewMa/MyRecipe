@@ -10,6 +10,7 @@ import { Recipe } from '../../recipe.model';
 })
 export class RecipeItemComponent implements OnInit {
   @Input() recipe !: Recipe;
+  @Input() currentIndex !: number;
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {

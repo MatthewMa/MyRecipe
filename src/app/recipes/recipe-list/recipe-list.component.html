@@ -6,6 +6,6 @@
 <hr/>
 <div class="row mt-2">
   <div class="col-md-12 list-group">
-    <app-recipe-item *ngFor="let recipe of recipes; let i = index" [recipe] = "recipe"></app-recipe-item>
+    <app-recipe-item *ngFor="let recipe of recipes; let i = index" [recipe] = "recipe" [currentIndex] = "i"></app-recipe-item>
   </div>
 </div>

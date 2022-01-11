@@ -1,5 +1,5 @@
 import { RecipeService } from './../recipe.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ShoppingListService } from './../../shopping-list/shopping-list.service';
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Recipe } from '../recipe.model';
@@ -16,7 +16,7 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
   @Input() currentRecipe: Recipe | undefined;
   paramsSubscription: Subscription | undefined;
   id: number | undefined;
-  constructor(private shoppingListService: ShoppingListService, private notifyService : NotificationService, private route: ActivatedRoute, private recipeService: RecipeService) { }
+  constructor(private shoppingListService: ShoppingListService, private notifyService : NotificationService, private route: ActivatedRoute, private recipeService: RecipeService, private router: Router) { }
   ngOnDestroy(): void {
     this.paramsSubscription?.unsubscribe();
   }
@@ -34,6 +34,14 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
         this.shoppingListService.addIngredient(element);
       });
       this.notifyService.showSuccess("Ingredient added to shopping list successfully.", "Ingredients Add Successfully");
+    }
+  }
+
+  onDeleteRecipe() {
+    if(confirm("Are you sure to delete current recipe?")) {
+      // Delete recipe
+      this.recipeService.deleteRecipe(this.id);
+      this.router.navigate(['..'], { relativeTo: this.route })
     }
   }
 }
